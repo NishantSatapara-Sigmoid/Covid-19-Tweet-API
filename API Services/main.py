@@ -17,28 +17,24 @@ def task_1():
 
 @app.route("/api/task_2")
 def task_2():
-    pass
+    if 'country' in request.args:
+        country = str(request.args['country'])
+        return Mongo_Object.task_2(country)
+    else:
+        return Mongo_Object.task_2('all')
+
 @app.route("/api/task_3")
 def task_3():
-    pass
+    return Mongo_Object.task_3('all')
+
 @app.route("/api/task_4")
 def task_4():
-    pass
-@app.route("/api/task_5")
-def task_5():
-    pass
-@app.route("/api/task_6")
-def task_6():
-    pass
-@app.route("/api/task_7")
-def task_7():
-    pass
-@app.route("/api/task_8")
-def task_8():
-    pass
-@app.route("/api/task_9")
-def task_9():
-    pass
+    if 'country' in request.args:
+        country=str(request.args['country'])
+    else:
+        country="India"
+    return Mongo_Object.task_4(country)
+
 
 if __name__ == "__main__":
     app.run()

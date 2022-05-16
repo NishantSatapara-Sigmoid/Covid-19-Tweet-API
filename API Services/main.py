@@ -25,7 +25,7 @@ def task_2():
 
 @app.route("/api/task_3")
 def task_3():
-    return Mongo_Object.task_3('all')
+    return Mongo_Object.task_3()
 
 @app.route("/api/task_4")
 def task_4():
@@ -37,4 +37,4 @@ def task_4():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=False)

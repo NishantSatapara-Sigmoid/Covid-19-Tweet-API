@@ -106,10 +106,8 @@ class Mongo_query:
             {'$match':{'country':country}},
             {"$project": {"country": "$country", "word": {"$split": ["$tweet", " "]}}},
             {"$unwind": "$word"},
-            #{'$project': {'word': {'$toLower': "$word"}, 'country': 1}},
             {'$match': {
                 '$and': [
-                   # {'word': {'$toLower': "$word"}},
                     {'word': {'$ne': ""}},
                     {'word': {'$nin':stop_words}},
                 ]}},
